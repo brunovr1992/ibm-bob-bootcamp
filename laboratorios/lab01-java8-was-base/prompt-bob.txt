@@ -1,0 +1,50 @@
+Criar uma aplicação em Java 8 que rode no WAS Base com as seguintes características:
+
+1. Funcionalidade de Log:
+   - Imprimir mensagem "Bob no Java 8 e WAS Base" a cada 5 segundos no SystemOut
+   - Incluir timestamp em cada mensagem no formato [YYYY-MM-DD HH:MM:SS]
+   - Adicionar contador de execuções (Execução #1, #2, #3, etc.)
+
+2. Frontend com IBM Carbon UI/UX:
+   - Título principal: "BoB no WAS Base"
+   - Seção com detalhes do projeto contendo:
+     * Nome do projeto
+     * Versão
+     * Descrição
+     * Tecnologias utilizadas (Java 8, WAS Base, IBM Carbon)
+   - Exibir path completo para o arquivo de log
+   - Mostrar qual arquitetura está em execução (WAS Base)
+   - Usar componentes do IBM Carbon Design System
+   - Design responsivo e acessível
+
+3. Build e Deploy:
+   - Configurar pom.xml para executar: mvn clean install
+   - Gerar arquivo EAR para instalação no WAS Base
+   - Incluir todas as dependências necessárias
+   - Imprimir o context root recomendado para deploy no WAS (/boblab01)
+
+4. Estrutura do Projeto:
+   - Seguir padrões Java EE 7
+   - Usar Servlet 3.1
+   - Implementar EJB Timer Service para o log periódico
+   - Configuração adequada para WAS Base
+   - Documentação inline no código (comentários em português)
+   - Incluir web.xml e application.xml
+
+5. Requisitos Técnicos:
+   - Java 8
+   - Maven como ferramenta de build
+   - Packaging: EAR
+   - Servidor: WebSphere Application Server Base
+   - Frontend: HTML5 + CSS3 + IBM Carbon Components
+
+Por favor, gere todos os arquivos necessários incluindo:
+- pom.xml completo com todas as dependências
+- Classes Java com anotações apropriadas e comentários
+- Arquivos de configuração (web.xml, application.xml, ibm-web-ext.xml)
+- Páginas HTML com IBM Carbon Design System
+- Arquivo CSS customizado
+- README.md com instruções de build e deploy
+- Estrutura de diretórios Maven padrão
+
+Certifique-se de que o código está pronto para build e deploy imediato no WAS Base.

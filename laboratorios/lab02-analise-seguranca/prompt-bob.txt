@@ -1,0 +1,66 @@
+VALIDAÇÃO DE SEGURANÇA DA APLICAÇÃO
+
+Analise o código-fonte da aplicação BobLab em busca de vulnerabilidades de segurança.
+
+Crie um relatório abrangente em português (pt-BR) incluindo:
+
+1. Lista completa de todos os problemas de segurança encontrados
+
+2. Classificação de gravidade para cada problema:
+   - Crítico: Vulnerabilidades que podem ser exploradas remotamente sem autenticação
+   - Alto: Vulnerabilidades que requerem acesso autenticado ou local
+   - Médio: Vulnerabilidades que requerem condições específicas
+   - Baixo: Problemas de segurança menores ou boas práticas não seguidas
+
+3. Para cada vulnerabilidade, detalhe:
+   - Descrição clara do problema
+   - Impacto potencial no negócio e nos dados
+   - Localização exata no código (arquivo, classe, método e linha)
+   - Código vulnerável (trecho específico)
+   - Correção recomendada com exemplo de código
+   - Referências (OWASP, CWE, CVE quando aplicável)
+
+4. Ordem de prioridade para as correções baseada em:
+   - Gravidade da vulnerabilidade
+   - Facilidade de exploração
+   - Impacto no negócio
+   - Esforço de correção
+
+5. Resumo executivo contendo:
+   - Total de vulnerabilidades por categoria de gravidade
+   - Risco geral da aplicação (Crítico/Alto/Médio/Baixo)
+   - Top 5 vulnerabilidades mais críticas
+   - Recomendações gerais de segurança
+   - Estimativa de esforço para correção
+
+6. Plano de ação com:
+   - Correções imediatas (0-7 dias)
+   - Correções de curto prazo (1-4 semanas)
+   - Melhorias de médio prazo (1-3 meses)
+
+7. Análise específica de:
+   - Injeção de código (SQL, LDAP, OS Command)
+   - Cross-Site Scripting (XSS)
+   - Autenticação e gerenciamento de sessão
+   - Exposição de dados sensíveis
+   - Controle de acesso
+   - Configurações de segurança
+   - Componentes com vulnerabilidades conhecidas
+   - Logging e monitoramento
+   - Validação de entrada
+   - Criptografia
+
+8. Análise de dependências:
+   - Bibliotecas com vulnerabilidades conhecidas
+   - Versões desatualizadas
+   - Recomendações de atualização
+
+Formato: Documento estruturado em markdown com:
+- Seções claras e bem organizadas
+- Exemplos de código vulnerável e corrigido
+- Tabelas para visualização rápida
+- Links para referências externas
+- Índice navegável
+- Resumo executivo no início
+
+O relatório deve ser técnico mas compreensível para desenvolvedores e gestores.

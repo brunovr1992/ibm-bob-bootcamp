@@ -1,0 +1,91 @@
+MIGRAÇÃO PARA LIBERTY E JAVA 21
+
+Migrar a aplicação atual para WebSphere Liberty e Java 21.
+
+Requisitos:
+
+1. Migração de Versão Java:
+   - Converter código de Java 8 para Java 21
+   - Utilizar features modernas do Java 21 quando apropriado:
+     * Text Blocks para strings multilinha
+     * Switch Expressions onde aplicável
+     * Records para DTOs simples
+     * Pattern Matching quando possível
+     * Var para inferência de tipos local
+   - Manter compatibilidade e funcionalidade
+   - Atualizar APIs descontinuadas
+
+2. Migração de Servidor:
+   - Converter de WAS Base para Liberty
+   - Usar como referência: C:\Softwares\BobWorkshop\BobHitsClaro\migration-plan
+   - Liberty instalado em: C:\Softwares\Liberty\wlp
+   - Adaptar configurações XML para Liberty
+   - Simplificar estrutura quando possível
+   - Remover dependências específicas do WAS Base
+
+3. Alterações no Código:
+   - Alterar mensagem do SystemOut para: "Aqui é o Bob no Java 21!!!!"
+   - Manter todas as outras funcionalidades (timer, contador, timestamp)
+   - Atualizar frontend com informações da nova versão
+   - Adicionar indicador de Java 21 e Liberty na página
+   - Incluir informações sobre melhorias de performance
+
+4. Configuração do Servidor Liberty:
+   - Criar configuração para servidor chamado: BobHitsJava21
+   - Configurar para executar com JDK 21
+   - Habilitar features necessárias:
+     * servlet-5.0 ou servlet-6.0
+     * jsp-3.0 ou jsp-3.1
+     * cdi-3.0 ou cdi-4.0
+     * jsonb-2.0 ou jsonb-3.0
+     * jaxrs-3.0 ou jaxrs-3.1
+   - Configurar portas (HTTP: 9080, HTTPS: 9443)
+   - Configurar logging apropriado
+   - Otimizar para desenvolvimento (hot reload)
+
+5. Build e Packaging:
+   - Atualizar pom.xml para Java 21
+   - Ajustar dependências para Liberty (provided scope)
+   - Gerar WAR (não EAR) para Liberty
+   - Configurar Maven para target Java 21
+   - Incluir plugin do Liberty Maven
+   - Configurar profiles para dev e prod
+
+6. Estrutura de Diretórios:
+   - Manter estrutura Maven padrão
+   - Adicionar diretório src/main/liberty/config para configurações
+   - Incluir scripts de deploy
+   - Documentar estrutura
+
+7. Documentação:
+   - Exibir porta e URL da aplicação
+   - Documentar mudanças realizadas
+   - Listar benefícios da migração:
+     * Startup mais rápido
+     * Menor consumo de memória
+     * Deploy mais ágil
+     * Hot reload
+     * Configuração simplificada
+   - Criar guia de deploy passo a passo
+   - Incluir comandos úteis do Liberty
+
+8. Testes e Validação:
+   - Incluir testes unitários básicos
+   - Validar funcionalidades após migração
+   - Verificar logs e mensagens
+
+Gerar todos os arquivos necessários:
+- pom.xml atualizado com Java 21 e Liberty
+- server.xml completo para Liberty
+- Código Java 21 modernizado com novos recursos
+- Configurações Liberty (bootstrap.properties, jvm.options)
+- Scripts de deploy (deploy.sh, deploy.bat)
+- Documentação de migração detalhada
+- README.md com instruções completas
+
+Certifique-se de que:
+- O código está pronto para build e deploy imediato no Liberty
+- Todas as funcionalidades originais são mantidas
+- O código aproveita recursos modernos do Java 21
+- A configuração é otimizada para Liberty
+- A documentação é clara e completa

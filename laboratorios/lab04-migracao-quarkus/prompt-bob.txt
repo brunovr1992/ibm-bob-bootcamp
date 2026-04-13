@@ -1,0 +1,139 @@
+MIGRAÇÃO PARA QUARKUS
+
+Migrar a aplicação e o servidor de aplicações para Quarkus.
+
+Requisitos:
+
+1. Migração Completa:
+   - Converter aplicação Liberty para Quarkus
+   - Adaptar código para o modelo Quarkus (CDI, JAX-RS)
+   - Manter Java 21
+   - Remover dependências específicas do Liberty
+   - Adicionar extensões Quarkus necessárias:
+     * quarkus-resteasy-reactive ou quarkus-rest
+     * quarkus-scheduler
+     * quarkus-smallrye-health
+     * quarkus-micrometer-registry-prometheus
+     * quarkus-logging-json (opcional)
+     * quarkus-smallrye-openapi
+
+2. Alterações no Código:
+   - Alterar mensagem do SystemOut para: "Aqui é o Bob e estou no Quarkus!!!!"
+   - Adaptar frontend para Quarkus (servir arquivos estáticos em META-INF/resources)
+   - Incluir mesmos detalhes da página de informações:
+     * Nome do projeto: BobLab04-Quarkus
+     * Versão: 1.0.0
+     * Tecnologias: Java 21, Quarkus 3.x
+     * Path do log (console.log no Quarkus)
+     * Arquitetura: Quarkus Cloud-Native
+     * Métricas de performance (startup, memory)
+     * Links para Dev UI, Health, Metrics
+   - Manter funcionalidade de timer/scheduler usando @Scheduled do Quarkus
+   - Converter Servlets para JAX-RS Resources
+
+3. Configuração Quarkus:
+   - Criar application.properties completo com:
+     * Porta HTTP: quarkus.http.port=8080
+     * Host: quarkus.http.host=0.0.0.0
+     * Configurações de log detalhadas
+     * Dev mode settings (live reload habilitado)
+     * Métricas e health checks habilitados
+     * Nome da aplicação
+     * Configurações de performance
+   - Configurar hot reload para desenvolvimento
+   - Profiles para dev, test e prod
+
+4. Estrutura do Projeto:
+   - Seguir estrutura padrão Quarkus Maven
+   - src/main/java para código Java
+   - src/main/resources/META-INF/resources para frontend (HTML, CSS, JS)
+   - src/main/resources/application.properties para configurações
+   - src/test/java para testes
+   - src/main/docker para Dockerfiles
+
+5. Build e Packaging:
+   - Atualizar pom.xml para Quarkus BOM
+   - Configurar quarkus-maven-plugin
+   - Suporte para JVM mode (padrão)
+   - Suporte para Native build (profile)
+   - Configurar properties do Maven:
+     * quarkus.platform.version
+     * compiler.source e target = 21
+     * project.build.sourceEncoding=UTF-8
+
+6. Features Cloud-Native:
+   - Implementar Health Check customizado
+   - Configurar métricas Micrometer
+   - Preparar para containerização (Dockerfiles)
+   - OpenAPI/Swagger documentation
+
+7. Inicialização e Execução:
+   - Instruções para dev mode: mvn quarkus:dev
+   - Instruções para build: mvn clean package
+   - Instruções para executar: java -jar target/quarkus-app/quarkus-run.jar
+   - Instruções para native build (opcional)
+
+8. Documentação Completa:
+   - URL para acesso: http://localhost:8080
+   - Dev UI: http://localhost:8080/q/dev
+   - Health: http://localhost:8080/q/health
+   - Metrics: http://localhost:8080/q/metrics
+   - Swagger UI: http://localhost:8080/q/swagger-ui
+   - Path do log: Console output (System.out)
+   - Documentar diferenças entre Liberty e Quarkus:
+     * Startup time: Liberty ~8s vs Quarkus ~1s
+     * Memory footprint: Liberty ~80MB vs Quarkus ~30MB
+     * Developer experience: Hot reload instantâneo
+     * Cloud-native features: Built-in desde o início
+     * Package size: Menor e otimizado
+   - Listar benefícios do Quarkus:
+     * Supersonic startup (1-2 segundos)
+     * Subatomic memory footprint
+     * Live reload sem restart
+     * Native compilation com GraalVM
+     * Container-first design
+     * Developer joy (Dev UI, continuous testing)
+     * Standards-based (Jakarta EE, MicroProfile)
+   - Comandos úteis do Quarkus:
+     * mvn quarkus:dev
+     * mvn quarkus:add-extension
+     * mvn quarkus:list-extensions
+     * mvn package -Pnative
+
+9. Testes:
+   - Incluir testes básicos com @QuarkusTest
+   - Testar endpoints REST
+   - Testar health checks
+   - Validar scheduler
+
+10. Containerização:
+    - Gerar Dockerfile.jvm para build JVM
+    - Gerar Dockerfile.native para build nativo
+    - Incluir .dockerignore
+    - Instruções de build e run com Docker
+
+Gerar estrutura completa do projeto Quarkus incluindo:
+- pom.xml completo com todas as dependências e plugins Quarkus
+- application.properties com todas as configurações
+- Código Java adaptado para Quarkus (CDI, JAX-RS, Scheduler)
+- Resources para frontend em META-INF/resources
+- Health check customizado
+- Testes básicos
+- Dockerfiles (JVM e Native)
+- .dockerignore
+- README.md detalhado com:
+  * Instruções de build e execução
+  * Comandos úteis
+  * Comparação de performance
+  * Links para recursos
+  * Troubleshooting
+
+Certifique-se de que:
+- O código está pronto para executar em dev mode imediatamente
+- Hot reload está configurado e funcionando
+- Todas as funcionalidades originais são mantidas
+- A aplicação é cloud-native ready
+- Health checks e métricas estão funcionais
+- A documentação é completa e clara
+- O código segue boas práticas Quarkus
+- Frontend está acessível e funcional
